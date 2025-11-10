@@ -11,7 +11,7 @@ export interface JsonLdBase {
 }
 
 // Map the possible schema keys (exported)
-export type SchemaKey = 'Person' | 'LocalBusiness' | 'Product' | 'FAQ' | 'Service' | 'NGO';
+export type SchemaKey = 'Person' | 'LocalBusiness' | 'Product' | 'FAQ' | 'Service' | 'Organization';
 
 // Props for the main component (exported)
 export interface FormProps {

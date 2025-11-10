@@ -1,11 +1,8 @@
 {
-  "title": "FAQ Schema Generator",
-  "description": "Add frequently asked questions to generate FAQPage structured data.",
   "type": "object",
   "properties": {
     "faqs": {
       "type": "array",
-      "title": "FAQs",
       "items": {
         "type": "object",
         "required": ["question", "answer"],
@@ -19,7 +16,13 @@
             "title": "Answer"
           }
         }
-      }
+      },
+      "default": [
+        {
+          "question": "",
+          "answer": ""
+        }
+      ]
     }
   }
 }

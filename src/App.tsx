@@ -7,45 +7,56 @@ interface TabInterface {
     heading: string;
     description: string;
     active?: boolean;
+    schemaKey: 'LocalBusiness' | 'Product' | 'FAQ' | 'Organization' | 'Article' | 'Service' | 'Person';
 }
 
 function App() {
-    const currentSchema = 'Person';
+    const schemaList = ['LocalBusiness','FAQ','Product','Service',  'Organization', 'Person'];
+    const [currentSchema, setCurrentSchema] = useState(schemaList[0]);
     const [output,setOutput] = useState<ReactElement>();
     const [tabs, setTabs] = useState<TabInterface[]>([
         {
             heading: "Local Business",
             description: "Essential for local SEO and map listings",
+            schemaKey: "LocalBusiness",
         },
         {
-            heading: "Product",
-            description: "Great for eCommerce and product-rich snippets",
+            heading: "FAQ Schema",
+            description: "Get featured in AI-generated answers",
+            schemaKey: "FAQ",
         },
         {
-            heading: "Event",
-            description: "Used for marking up events and schedules",
+            heading: "Product Schema",
+            description: "E-commerce & service product rich results",
+            schemaKey: "Product"
         },
         {
-            heading: "Article",
-            description: "Helps improve content SEO for blogs and news",
+            heading: "Service Schema",
+            description: "Company knowledge graph presence",
+            schemaKey: "Service"
         },
         {
-            heading: "FAQ",
+            heading: "Organization",
             description: "Ideal for question-answer content",
+            schemaKey:"Organization"
         },
         {
-            heading: "How-To",
-            description: "Enhances instructional content with step data",
+            heading: "Person/Author",
+            description: "Establish expertise and authority",
+            schemaKey:"Person"
         },
     ]);
 
-    function activateTab(index: number) {
+
+
+    function activateTab(index: number, schemaKey) {
         setTabs((prevTabs) =>
             prevTabs.map((tab, i) => ({
                 ...tab,
                 active: i === index, // Only activate the clicked one
             }))
         );
+        setCurrentSchema(schemaKey);
     }
 
     return (
@@ -65,11 +76,11 @@ function App() {
                 <Row className="section section-tabs ">
                     {tabs.map((tab, index) => (
                         <Col
-                            key={index}
+                            key={tab.schemaKey}
                             className={`tab text-center blur-bg ${
                                 tab.active ? "tab-active" : ""
                             }`}
-                            onClick={() => activateTab(index)}
+                            onClick={() => activateTab(index, tab.schemaKey)}
                         >
                             <h5 className="tab-heading">{tab.heading}</h5>
                             <small className="tab-desc d-block">{tab.description}</small>

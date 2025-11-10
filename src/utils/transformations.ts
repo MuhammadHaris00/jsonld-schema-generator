@@ -104,30 +104,125 @@ const transformFAQ = (formData: FormData): JsonLdBase => {
 };
 
 const transformLocalBusiness = (formData: FormData): JsonLdBase => {
-    const jsonLd: any = { ...formData };
-
-    jsonLd["@context"] = "https://schema.org";
-    jsonLd["@type"] = jsonLd.businessType.replace(/\s/g, '') || "LocalBusiness"; // Use type, remove spaces
-    delete jsonLd.businessType;
-
-    // Direct Mappings
-    jsonLd.name = jsonLd.businessName; delete jsonLd.businessName;
-    jsonLd.description = jsonLd.businessDescription; delete jsonLd.businessDescription;
-    jsonLd.url = jsonLd.websiteUrl; delete jsonLd.websiteUrl;
-    jsonLd.telephone = jsonLd.phoneNumber; delete jsonLd.phoneNumber;
-    jsonLd.image = jsonLd.imageUrl; delete jsonLd.imageUrl;
-
-    if (jsonLd.priceRange) {
-        jsonLd.priceRange = jsonLd.priceRange.split(' ')[0];
+    const jsonLd: any = {
+        "@context": "https://schema.org",
+        "@type": formData.businessType?.replace(/\s/g, '') || "LocalBusiness",
+    }
+    if(formData.name){
+        jsonLd.name = formData.name;
+    }
+    if(formData.description){
+        jsonLd.description = formData.description;
+    }
+    if(formData.url){
+        jsonLd.url = formData.url;
+    }
+    if(formData.telephone){
+        jsonLd.telephone = formData.telephone;
+    }
+    if(formData.email){
+        jsonLd.email = formData.email;
+    }
+    if(formData.priceRange){
+        jsonLd.priceRange = formData.priceRange;
+    }
+    if(formData.image){
+        jsonLd.image = formData.image;
+    }
+    if(formData.streetAddress || formData.addressLocality || formData.addressRegion || formData.postalCode){
+        jsonLd.address = {
+            '@type': 'PostalAddress',
+        }
+        if(formData.streetAddress){
+            jsonLd.address.streetAddress = formData.streetAddress;
+        }
+        if(formData.addressLocality){
+            jsonLd.address.addressLocality = formData.addressLocality;
+        }
+        if(formData.addressRegion){
+            jsonLd.address.addressRegion = formData.addressRegion;
+        }
+        if(formData.postalCode){
+            jsonLd.address.postalCode = formData.postalCode;
+        }
+    }
+    if(formData.latitude || formData.longitude){
+        jsonLd.geo={
+            "@type": "GeoCoordinates",
+        }
+        if(formData.latitude){
+            jsonLd.geo.latitude = formData.latitude;
+        }
+        if(formData.longitude){
+            jsonLd.geo.longitude = formData.longitude;
+        }
     }
 
-    // Nested Entities
-    if (jsonLd.address) jsonLd.address = { "@type": "PostalAddress", ...jsonLd.address };
-    if (jsonLd.geo) jsonLd.geo = { "@type": "GeoCoordinates", ...jsonLd.geo };
-    if (jsonLd.openingHoursSpecification) jsonLd.openingHoursSpecification["@type"] = "OpeningHoursSpecification";
-    if (jsonLd.aggregateRating) jsonLd.aggregateRating["@type"] = "AggregateRating";
+    if (formData.openingHours) {
+        // Example input: "Mo-Fr 09:00-17:00"
+        const input = formData.openingHours.trim();
+        const regex = /([A-Za-z]{2})(?:-([A-Za-z]{2}))?\s+(\d{2}:\d{2})-(\d{2}:\d{2})/;
+        const match = input.match(regex);
+        if (match) {
+            const [, startDay, endDay, opens, closes] = match;
 
-    return jsonLd as JsonLdBase;
+            const dayMap = {
+                Mo: "Monday",
+                Tu: "Tuesday",
+                We: "Wednesday",
+                Th: "Thursday",
+                Fr: "Friday",
+                Sa: "Saturday",
+                Su: "Sunday"
+            };
+
+            const allDays = ["Mo", "Tu", "We", "Th", "Fr", "Sa", "Su"];
+
+            let dayOfWeek:string[] = [];
+
+            if (endDay) {
+                // Range (e.g., Mo-Fr)
+                const startIndex = allDays.indexOf(startDay);
+                const endIndex = allDays.indexOf(endDay);
+                dayOfWeek = allDays
+                    .slice(startIndex, endIndex + 1)
+                    .map(d => dayMap[d]);
+            } else {
+                // Single day (e.g., Mo)
+                dayOfWeek = [dayMap[startDay]];
+            }
+
+            jsonLd.openingHoursSpecification = {
+                "@type": "OpeningHoursSpecification",
+            };
+
+            if(dayOfWeek.length > 0){
+                jsonLd.openingHoursSpecification.dayOfWeek = dayOfWeek;
+            }
+            if(opens){
+                jsonLd.openingHoursSpecification.dayOfWeek = opens;
+            }
+            if(closes){
+                jsonLd.openingHoursSpecification.dayOfWeek = closes;
+            }
+        }
+        else{
+            jsonLd.openingHoursSpecification = {
+                "@type": "OpeningHoursSpecification",
+                dayOfWeek:[
+                    "Monday",
+                    "Tuesday",
+                    "Wednesday",
+                    "Thursday",
+                    "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "17:00"
+            }
+        }
+    }
+
+    return jsonLd;
 };
 
 const transformService = (formData: FormData): JsonLdBase => {

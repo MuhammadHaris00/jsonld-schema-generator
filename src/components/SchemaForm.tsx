@@ -10,17 +10,22 @@ import { transformJSONLD } from '../utils/transformations';
 
 // --- MOCK SCHEMA IMPORTS ---
 import personSchema from '../forms_schema/personSchema.json';
+import localBusinessSchema from  '../forms_schema/localBusiness.json';
+import productSchema from  '../forms_schema/productSchema.json';
+import faqSchema from  '../forms_schema/faqSchema.json';
+import serviceSchema from  '../forms_schema/serviceSchema.json';
+import organizationSchema from  '../forms_schema/organizationSchema.json';
 // --- Add imports for all your other schemas here ---
 
 // --- MOCK SCHEMA SELECTION LOGIC ---
 // Mapped keys must match the string literals in SchemaKey type (e.g., 'LocalBusiness', 'Product')
 const schemaMap: Record<SchemaKey, any> = {
     'Person': personSchema,
-    'Product': { title: "Product Form", type: "object", properties: {} }, // Placeholder
-    'FAQ': { title: "FAQ Form", type: "object", properties: {} }, // Placeholder
-    'LocalBusiness': { title: "LocalBusiness Form", type: "object", properties: {} }, // Placeholder
-    'Service': { title: "Service Form", type: "object", properties: {} }, // Placeholder
-    'NGO': { title: "NGO Form", type: "object", properties: {} }, // Placeholder
+    'Product': productSchema, // Placeholder
+    'FAQ': faqSchema,
+    'LocalBusiness': localBusinessSchema, // Placeholder
+    'Service': serviceSchema,
+    'Organization': organizationSchema,
 };
 // ---------------------------------------------------
 
@@ -75,7 +80,7 @@ export const SchemaForm = ({ schemaKey, setOutput }: SchemaFormProps) => {
             <Form
                 schema={currentSchema}
                 validator={validator}
-                onSubmit={handleSubmit}
+                // onSubmit={handleSubmit}
                 onChange={({ formData }: { formData: FormData }) => setFormData(formData)}
             />
         </div>
