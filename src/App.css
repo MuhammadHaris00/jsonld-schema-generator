@@ -59,5 +59,31 @@ body {
     .schema-generator .section.form-section .heading-inner {
       font-size: 1.425em;
       font-weight: 600; }
+    .schema-generator .section.form-section .preview-container .preview-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 30px; }
+      .schema-generator .section.form-section .preview-container .preview-header .copy-schema-btn {
+        padding: 0.8em 1.3em 0.8em 1.3em;
+        border-radius: 100px;
+        font-size: 1em;
+        line-height: 1.5em;
+        background: rgba(255, 255, 255, 0.12) !important;
+        border: 1px solid rgba(255, 255, 255, 0.25) !important;
+        box-shadow: 0 4px 20px -3px rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+        backdrop-filter: blur(6.3px);
+        -webkit-backdrop-filter: blur(6.3px);
+        opacity: 0.9; }
+        .schema-generator .section.form-section .preview-container .preview-header .copy-schema-btn::before {
+          content: "\F759";
+          font-family: "bootstrap-icons", serif;
+          font-size: inherit;
+          line-height: inherit;
+          margin-right: 10px;
+          display: inline-block; }
+        .schema-generator .section.form-section .preview-container .preview-header .copy-schema-btn.active::before {
+          content: "\F633"; }
 
 /*# sourceMappingURL=App.css.map */

@@ -1,111 +1,101 @@
 {
-  "title": "Product Schema Generator",
-  "description": "Enter your product details to generate Product structured data (JSON-LD).",
   "type": "object",
-  "required": ["name", "description", "offers"],
   "properties": {
     "name": {
       "type": "string",
-      "title": "Product Name (schema:name)"
+      "title": "Product Name *"
     },
     "description": {
       "type": "string",
-      "title": "Product Description (schema:description)"
+      "title": "Product Description *"
+    },
+    "brand": {
+      "type": "string",
+      "title": "Brand"
     },
     "model": {
       "type": "string",
-      "title": "Model (schema:model)"
+      "title": "Model"
     },
     "sku": {
       "type": "string",
-      "title": "SKU (schema:sku)"
+      "title": "SKU"
     },
     "gtin": {
       "type": "string",
-      "title": "GTIN/UPC (schema:gtin)"
+      "title": "GTIN/UPC"
     },
     "image": {
       "type": "string",
-      "title": "Product Image URL (schema:image)",
+      "title": "Product Image URL",
       "format": "uri"
     },
     "category": {
       "type": "string",
-      "title": "Category (schema:category)"
+      "title": "Category"
     },
-
-    "brand": {
-      "type": "object",
-      "title": "Brand Information",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Brand Name"
-        }
-      }
+    "price": {
+      "type": "string",
+      "title": "Price"
     },
-
-    "offers": {
-      "type": "object",
-      "title": "Offer Details (Single Offer)",
-      "properties": {
-        "price": {
-          "type": "number",
-          "title": "Price (schema:price)"
-        },
-        "priceCurrency": {
-          "type": "string",
-          "title": "Currency (schema:priceCurrency)",
-          "enum": ["USD", "EUR", "GBP", "CAD", "AUD"]
-        },
-        "availability": {
-          "type": "string",
-          "title": "Availability",
-          "enum": ["In Stock", "Out of Stock", "Pre Order", "Back Order"]
-        },
-        "itemCondition": {
-          "type": "string",
-          "title": "Condition",
-          "enum": ["New Condition", "Used Condition", "Refurbished Condition", "Damaged Condition"]
-        },
-        "url": {
-          "type": "string",
-          "title": "Product Page URL (schema:url)",
-          "format": "uri"
-        },
-        "priceValidUntil": {
-          "type": "string",
-          "title": "Offer Valid Until (schema:priceValidUntil)",
-          "format": "date"
-        },
-        "seller": {
-          "type": "object",
-          "title": "Seller Information",
-          "properties": {
-            "name": {
-              "type": "string",
-              "title": "Business/Seller Name"
-            }
-          }
-        }
-      }
+    "priceCurrency": {
+      "type": "string",
+      "title": "Currency",
+      "enum": ["USD", "EUR", "GBP", "CAD", "AUD"],
+      "enumNames": ["USD ($)", "EUR (€)", "GBP (£)", "CAD", "AUD"]
     },
-
-    "aggregateRating": {
-      "type": "object",
-      "title": "Aggregate Rating Details",
-      "properties": {
-        "ratingValue": {
-          "type": "number",
-          "title": "Rating Value (1-5)",
-          "minimum": 0,
-          "maximum": 5
-        },
-        "reviewCount": {
-          "type": "integer",
-          "title": "Review Count"
-        }
-      }
+    "lowPrice": {
+      "type": "string",
+      "title": "Low Price (for price range)"
+    },
+    "highPrice": {
+      "type": "string",
+      "title": "High Price (for price range)"
+    },
+    "availability": {
+      "type": "string",
+      "title": "Availability",
+      "enum": [
+        "https://schema.org/InStock",
+        "https://schema.org/OutOfStock",
+        "https://schema.org/PreOrder",
+        "https://schema.org/BackOrder"
+      ],
+      "enumNames": ["In Stock", "Out of Stock", "Pre Order", "Back Order"]
+    },
+    "itemCondition": {
+      "type": "string",
+      "title": "Condition",
+      "enum": [
+        "https://schema.org/NewCondition",
+        "https://schema.org/UsedCondition",
+        "https://schema.org/RefurbishedCondition",
+        "https://schema.org/DamagedCondition"
+      ],
+      "enumNames": ["New", "Used", "Refurbished", "Damaged"]
+    },
+    "url": {
+      "type": "string",
+      "title": "Product Website",
+      "format": "uri"
+    },
+    "seller": {
+      "type": "string",
+      "title": "Business/Seller Name"
+    },
+    "ratingValue": {
+      "type": "string",
+      "title": "Rating Value (1-5)"
+    },
+    "reviewCount": {
+      "type": "string",
+      "title": "Review Count"
+    },
+    "priceValidUntil": {
+      "type": "string",
+      "title": "Offer Valid Until",
+      "format": "date"
     }
-  }
+  },
+  "required": ["name", "description"]
 }

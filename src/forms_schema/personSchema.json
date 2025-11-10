@@ -1,14 +1,18 @@
 {
   "type": "object",
-  "required": ["name", "description"],
+  "title": "Person Information",
   "properties": {
-    "name": {
+    "personName": {
       "type": "string",
-      "title": "Full Name"
+      "title": "Full Name *"
+    },
+    "jobTitle": {
+      "type": "string",
+      "title": "Job Title/Position"
     },
     "description": {
       "type": "string",
-      "title": "Professional Description"
+      "title": "Professional Description *"
     },
     "givenName": {
       "type": "string",
@@ -26,19 +30,24 @@
       "type": "string",
       "title": "Honorific Suffix"
     },
-    "jobTitle": {
-      "type": "string",
-      "title": "Job Title/Position"
-    },
     "url": {
       "type": "string",
-      "title": "Personal Website (schema:url)",
+      "title": "Professional Website",
       "format": "uri"
     },
     "image": {
       "type": "string",
-      "title": "Professional Photo URL (schema:image)",
+      "title": "Professional Photo URL",
       "format": "uri"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone Number"
     },
     "birthDate": {
       "type": "string",
@@ -49,113 +58,66 @@
       "type": "string",
       "title": "Nationality"
     },
-    "award": {
+    "streetAddress": {
       "type": "string",
-      "title": "Awards (schema:award)"
+      "title": "Street Address"
     },
-
-    "contactPoint": {
-      "type": "object",
-      "title": "Contact Information (ContactPoint)",
-      "properties": {
-        "contactType": {
-          "type": "string",
-          "title": "Contact Type (e.g., Professional, Customer Service)"
-        },
-        "email": {
-          "type": "string",
-          "title": "Email Address",
-          "format": "email"
-        },
-        "telephone": {
-          "type": "string",
-          "title": "Phone Number"
-        }
-      }
+    "city": {
+      "type": "string",
+      "title": "City"
     },
-
-    "address": {
-      "type": "object",
-      "title": "Physical Address (PostalAddress)",
-      "properties": {
-        "streetAddress": {
-          "type": "string",
-          "title": "Street Address"
-        },
-        "addressLocality": {
-          "type": "string",
-          "title": "City (addressLocality)"
-        },
-        "addressRegion": {
-          "type": "string",
-          "title": "State/Region (addressRegion)"
-        },
-        "postalCode": {
-          "type": "string",
-          "title": "Postal Code"
-        }
-      }
+    "state": {
+      "type": "string",
+      "title": "State"
     },
-
-    "worksFor": {
-      "type": "object",
-      "title": "Current Employer (Organization)",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Organization Name"
-        },
-        "url": {
-          "type": "string",
-          "title": "Organization URL",
-          "format": "uri"
-        }
-      }
+    "postalCode": {
+      "type": "string",
+      "title": "Postal Code"
     },
-
-    "alumniOf": {
-      "type": "object",
-      "title": "Education/University (AlumniOf)",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "University/Institution Name"
-        },
-        "hasCredential": {
-          "type": "object",
-          "title": "Degree/Credential Details",
-          "properties": {
-            "credentialCategory": {
-              "type": "string",
-              "title": "Degree (e.g., Master of Arts, PhD)"
-            },
-            "dateCreated": {
-              "type": "string",
-              "title": "Graduation Year (or Date)"
-            }
-          }
-        }
-      }
+    "organizationName": {
+      "type": "string",
+      "title": "Organization Name"
     },
-
-    "knowsAbout": {
-      "type": "array",
-      "title": "Skills/Areas of Expertise (schema:knowsAbout)",
-      "description": "Enter one skill or topic per line.",
-      "items": {
-        "type": "string"
-      }
+    "organizationUrl": {
+      "type": "string",
+      "title": "Organization URL",
+      "format": "uri"
     },
-
-    "sameAs": {
-      "type": "array",
-      "title": "Social/SameAs URLs",
-      "description": "List all official social media profiles or equivalent external links (LinkedIn, Twitter, etc.).",
-      "items": {
-        "type": "string",
-        "title": "URL",
-        "format": "uri"
-      }
+    "skills": {
+      "type": "string",
+      "title": "Skills (comma-separated)"
+    },
+    "awards": {
+      "type": "string",
+      "title": "Awards"
+    },
+    "university": {
+      "type": "string",
+      "title": "University"
+    },
+    "degree": {
+      "type": "string",
+      "title": "Degree"
+    },
+    "graduationYear": {
+      "type": "string",
+      "title": "Graduation Year"
+    },
+    "socialMediaLinkedIn": {
+      "type": "string",
+      "title": "LinkedIn URL",
+      "format": "uri"
+    },
+    "socialMediaTwitter": {
+      "type": "string",
+      "title": "Twitter URL",
+      "format": "uri"
+    },
+    "personalWebsite": {
+      "type": "string",
+      "title": "Personal Website",
+      "format": "uri"
     }
-  }
+  },
+  "required": ["personName", "description"]
 }

@@ -1,144 +1,122 @@
 {
-  "title": "Organization (NGO) Schema Generator",
-  "description": "Enter detailed organization information to generate structured data for an NGO or similar organization.",
   "type": "object",
-  "required": ["name", "description", "url"],
   "properties": {
     "name": {
       "type": "string",
-      "title": "Organization Name (schema:name)"
+      "title": "Organization Name *"
+    },
+    "organizationType": {
+      "type": "string",
+      "title": "Organization Type *",
+      "enum": [
+        "Organization",
+        "Corporation",
+        "LocalBusiness",
+        "ProfessionalService",
+        "FinancialService",
+        "MedicalOrganization",
+        "EducationalOrganization",
+        "GovernmentOrganization",
+        "NGO",
+        "SportsOrganization",
+        "PerformingGroup"
+      ]
     },
     "description": {
       "type": "string",
-      "title": "Short Description (schema:description)"
+      "title": "Description *"
     },
     "url": {
       "type": "string",
-      "title": "Official Website URL (schema:url)",
+      "title": "Website URL",
       "format": "uri"
     },
     "logo": {
       "type": "string",
-      "title": "Logo Image URL (schema:logo)",
+      "title": "Logo URL",
       "format": "uri"
-    },
-    "foundingDate": {
-      "type": "string",
-      "title": "Founding Date (schema:foundingDate)",
-      "format": "date"
     },
     "legalName": {
       "type": "string",
-      "title": "Legal Name (schema:legalName)"
+      "title": "Legal Name"
     },
-    "slogan": {
+    "foundingDate": {
       "type": "string",
-      "title": "Slogan (schema:slogan)"
+      "title": "Founding Date",
+      "format": "date"
     },
     "numberOfEmployees": {
       "type": "string",
-      "title": "Number of Employees (schema:numberOfEmployees)"
+      "title": "Number of Employees"
     },
-    "vatID": {
+    "streetAddress": {
       "type": "string",
-      "title": "VAT ID (schema:vatID)"
+      "title": "Street Address"
     },
-    "taxID": {
+    "addressLocality": {
       "type": "string",
-      "title": "Tax ID (schema:taxID)"
+      "title": "City"
+    },
+    "addressRegion": {
+      "type": "string",
+      "title": "State"
+    },
+    "postalCode": {
+      "type": "string",
+      "title": "Postal Code"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "format": "email"
     },
     "industry": {
       "type": "string",
-      "title": "Industry/Sector (schema:industry)"
+      "title": "Industry"
     },
-
-    "address": {
-      "type": "object",
-      "title": "Mailing/Physical Address (PostalAddress)",
-      "properties": {
-        "streetAddress": {
-          "type": "string",
-          "title": "Street Address"
-        },
-        "addressLocality": {
-          "type": "string",
-          "title": "City (addressLocality)"
-        },
-        "addressRegion": {
-          "type": "string",
-          "title": "State/Region (addressRegion)"
-        },
-        "postalCode": {
-          "type": "string",
-          "title": "Postal Code"
-        }
-      }
+    "founderName": {
+      "type": "string",
+      "title": "Founder Name"
     },
-
-    "contactPoint": {
-      "type": "object",
-      "title": "Primary Contact Information (ContactPoint)",
-      "properties": {
-        "contactType": {
-          "type": "string",
-          "title": "Contact Type (e.g., Customer Service)"
-        },
-        "telephone": {
-          "type": "string",
-          "title": "Phone Number"
-        },
-        "email": {
-          "type": "string",
-          "title": "Email Address",
-          "format": "email"
-        }
-      }
+    "ceoName": {
+      "type": "string",
+      "title": "CEO Name"
     },
-
-    "founder": {
-      "type": "object",
-      "title": "Founder Details (Person)",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Founder's Full Name"
-        }
-      }
+    "slogan": {
+      "type": "string",
+      "title": "Company Slogan"
     },
-
-    "employee": {
-      "type": "object",
-      "title": "Key Employee/CEO Details (Person)",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Employee's Full Name"
-        },
-        "jobTitle": {
-          "type": "string",
-          "title": "Job Title (e.g., CEO, Director)"
-        }
-      }
-    },
-
     "keywords": {
-      "type": "array",
-      "title": "Keywords/Tags",
-      "items": {
-        "type": "string",
-        "title": "Keyword"
-      }
+      "type": "string",
+      "title": "Keywords (comma-separated)"
     },
-
-    "sameAs": {
-      "type": "array",
-      "title": "Social/SameAs URLs",
-      "description": "List all official social media profiles or equivalent external links.",
-      "items": {
-        "type": "string",
-        "title": "URL",
-        "format": "uri"
-      }
+    "vatID": {
+      "type": "string",
+      "title": "VAT ID"
+    },
+    "taxID": {
+      "type": "string",
+      "title": "Tax ID"
+    },
+    "linkedinURL": {
+      "type": "string",
+      "title": "LinkedIn URL",
+      "format": "uri"
+    },
+    "twitterURL": {
+      "type": "string",
+      "title": "Twitter URL",
+      "format": "uri"
+    },
+    "facebookURL": {
+      "type": "string",
+      "title": "Facebook URL",
+      "format": "uri"
     }
-  }
+  },
+  "required": ["name", "organizationType", "description"]
 }

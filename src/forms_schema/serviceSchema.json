@@ -1,16 +1,14 @@
 {
-  "title": "Service Schema Generator",
-  "description": "Enter your service details to generate Service structured data (JSON-LD).",
   "type": "object",
-  "required": ["name", "serviceType", "description"],
+  "title": "Service Information",
   "properties": {
     "name": {
       "type": "string",
-      "title": "Service Name (schema:name)"
+      "title": "Service Name *"
     },
     "serviceType": {
       "type": "string",
-      "title": "Service Type (@type)",
+      "title": "Service Type *",
       "enum": [
         "Service",
         "ProfessionalService",
@@ -24,126 +22,77 @@
     },
     "description": {
       "type": "string",
-      "title": "Service Description (schema:description)"
+      "title": "Service Description *"
+    },
+    "provider": {
+      "type": "string",
+      "title": "Service Provider"
+    },
+    "brand": {
+      "type": "string",
+      "title": "Brand"
     },
     "areaServed": {
       "type": "string",
-      "title": "Area Served (schema:areaServed)"
+      "title": "Area Served"
     },
     "url": {
       "type": "string",
-      "title": "Service URL (schema:url)",
+      "title": "Service URL",
       "format": "uri"
     },
     "image": {
       "type": "string",
-      "title": "Service Image URL (schema:image)",
+      "title": "Service Image URL",
       "format": "uri"
     },
-    "serviceCategory": {
+    "category": {
       "type": "string",
-      "title": "Service Category (schema:serviceType)"
+      "title": "Service Category"
+    },
+    "audience": {
+      "type": "string",
+      "title": "Target Audience",
+      "enum": ["Business (B2B)", "Consumer (B2C)", "Both B2B & B2C"]
     },
     "serviceOutput": {
       "type": "string",
-      "title": "Service Output (schema:serviceOutput)"
+      "title": "Service Output"
     },
     "hoursAvailable": {
       "type": "string",
-      "title": "Hours Available (schema:hoursAvailable)",
-      "description": "Example: Mo-Fr 09:00-17:00"
+      "title": "Hours Available"
+    },
+    "price": {
+      "type": "string",
+      "title": "Price"
+    },
+    "priceCurrency": {
+      "type": "string",
+      "title": "Currency"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email",
+      "format": "email"
+    },
+    "phone": {
+      "type": "string",
+      "title": "Phone"
+    },
+    "ratingValue": {
+      "type": "string",
+      "title": "Rating Value (1-5)"
+    },
+    "reviewCount": {
+      "type": "string",
+      "title": "Review Count"
     },
     "termsOfService": {
       "type": "string",
-      "title": "Terms of Service URL (schema:termsOfService)",
+      "title": "Terms of Service URL",
       "format": "uri"
-    },
-
-    "provider": {
-      "type": "object",
-      "title": "Service Provider (Organization)",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Service Provider Name"
-        }
-      }
-    },
-
-    "brand": {
-      "type": "object",
-      "title": "Brand Information",
-      "properties": {
-        "name": {
-          "type": "string",
-          "title": "Brand Name"
-        }
-      }
-    },
-
-    "audience": {
-      "type": "object",
-      "title": "Target Audience (Audience)",
-      "properties": {
-        "audienceType": {
-          "type": "string",
-          "title": "Target Audience Type",
-          "enum": ["Business", "Consumer", "Both"]
-        }
-      }
-    },
-
-    "offers": {
-      "type": "object",
-      "title": "Pricing Details (Offer)",
-      "properties": {
-        "price": {
-          "type": "number",
-          "title": "Price"
-        },
-        "priceCurrency": {
-          "type": "string",
-          "title": "Currency",
-          "enum": ["USD", "EUR", "GBP", "CAD", "AUD"]
-        }
-      }
-    },
-
-    "contactPoint": {
-      "type": "object",
-      "title": "Contact Information (ContactPoint)",
-      "properties": {
-        "contactType": {
-          "type": "string",
-          "title": "Contact Type (e.g., Customer Service)"
-        },
-        "email": {
-          "type": "string",
-          "title": "Email Address",
-          "format": "email"
-        },
-        "telephone": {
-          "type": "string",
-          "title": "Phone Number"
-        }
-      }
-    },
-
-    "aggregateRating": {
-      "type": "object",
-      "title": "Aggregate Rating Details",
-      "properties": {
-        "ratingValue": {
-          "type": "number",
-          "title": "Rating Value (1-5)",
-          "minimum": 0,
-          "maximum": 5
-        },
-        "reviewCount": {
-          "type": "integer",
-          "title": "Review Count"
-        }
-      }
     }
-  }
+  },
+  "required": ["name", "serviceType", "description"]
 }
