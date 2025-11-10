@@ -1,0 +1,88 @@
+@import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+
+// Your custom SCSS below
+body {
+  font-family: 'Inter', sans-serif;
+}
+
+html{
+}
+body{
+  color: #fff;
+  background-color: #111315;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.blur-bg{
+  background: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.15) !important;
+  box-shadow: 0 4px 20px -3px rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(6.3px);
+  -webkit-backdrop-filter: blur(6.3px);
+}
+
+.schema-generator{
+  .section{
+    margin-bottom: 3.4em !important;
+    .section-heading{
+      font-size: 2.7em;
+      font-weight: 500;
+      line-height: 1.4em;
+    }
+    p{
+      margin-bottom: 0 !important;
+    }
+    &.section-tabs{
+      display: flex;
+      gap: 1.3em;
+      .tab{
+        padding: 2em;
+        flex: 1 1 28%;
+        background: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.15) !important;
+        box-shadow: 0 4px 20px -3px rgba(255, 255, 255, 0.03);
+        backdrop-filter: blur(6.3px);
+        -webkit-backdrop-filter: blur(6.3px);
+        transition: all 0.4s;
+        &:hover{
+          cursor: pointer;
+          background: rgba(255, 255, 255, 0.14) !important;
+        }
+        &.tab-active{
+          //border-color: #fff !important;
+          background-image: linear-gradient(120deg, rgba(16, 125, 200, 0.69) 0%, rgba(187, 41, 211, 0.63) 100%) !important;
+          background-size: 120%;
+          border-color: #b6b6b6 !important;
+          background-repeat: no-repeat;
+        }
+        .tab-heading{
+          font-size: 1.3em;
+          font-weight: 600;
+        }
+        .tab-desc{
+          opacity: 0.7;
+        }
+      }
+    }
+
+    &.form-section-heading{
+      margin-bottom: 1.1em !important;
+    }
+
+    &.form-section{
+      display: flex;
+      gap: 1.3em;
+
+      .form-container,.preview-container{
+        flex: 1 1 400px;
+        padding: 1.5em 2em;
+      }
+
+      .heading-inner{
+        font-size: 1.425em;
+        font-weight: 600;
+      }
+    }
+  }
+}

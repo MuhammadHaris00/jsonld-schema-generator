@@ -1,0 +1,149 @@
+{
+  "title": "Service Schema Generator",
+  "description": "Enter your service details to generate Service structured data (JSON-LD).",
+  "type": "object",
+  "required": ["name", "serviceType", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Service Name (schema:name)"
+    },
+    "serviceType": {
+      "type": "string",
+      "title": "Service Type (@type)",
+      "enum": [
+        "Service",
+        "ProfessionalService",
+        "FinancialService",
+        "GovernmentService",
+        "TaxiService",
+        "BroadcastService",
+        "CableOrSatelliteService",
+        "FoodService"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "title": "Service Description (schema:description)"
+    },
+    "areaServed": {
+      "type": "string",
+      "title": "Area Served (schema:areaServed)"
+    },
+    "url": {
+      "type": "string",
+      "title": "Service URL (schema:url)",
+      "format": "uri"
+    },
+    "image": {
+      "type": "string",
+      "title": "Service Image URL (schema:image)",
+      "format": "uri"
+    },
+    "serviceCategory": {
+      "type": "string",
+      "title": "Service Category (schema:serviceType)"
+    },
+    "serviceOutput": {
+      "type": "string",
+      "title": "Service Output (schema:serviceOutput)"
+    },
+    "hoursAvailable": {
+      "type": "string",
+      "title": "Hours Available (schema:hoursAvailable)",
+      "description": "Example: Mo-Fr 09:00-17:00"
+    },
+    "termsOfService": {
+      "type": "string",
+      "title": "Terms of Service URL (schema:termsOfService)",
+      "format": "uri"
+    },
+
+    "provider": {
+      "type": "object",
+      "title": "Service Provider (Organization)",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Service Provider Name"
+        }
+      }
+    },
+
+    "brand": {
+      "type": "object",
+      "title": "Brand Information",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Brand Name"
+        }
+      }
+    },
+
+    "audience": {
+      "type": "object",
+      "title": "Target Audience (Audience)",
+      "properties": {
+        "audienceType": {
+          "type": "string",
+          "title": "Target Audience Type",
+          "enum": ["Business", "Consumer", "Both"]
+        }
+      }
+    },
+
+    "offers": {
+      "type": "object",
+      "title": "Pricing Details (Offer)",
+      "properties": {
+        "price": {
+          "type": "number",
+          "title": "Price"
+        },
+        "priceCurrency": {
+          "type": "string",
+          "title": "Currency",
+          "enum": ["USD", "EUR", "GBP", "CAD", "AUD"]
+        }
+      }
+    },
+
+    "contactPoint": {
+      "type": "object",
+      "title": "Contact Information (ContactPoint)",
+      "properties": {
+        "contactType": {
+          "type": "string",
+          "title": "Contact Type (e.g., Customer Service)"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email Address",
+          "format": "email"
+        },
+        "telephone": {
+          "type": "string",
+          "title": "Phone Number"
+        }
+      }
+    },
+
+    "aggregateRating": {
+      "type": "object",
+      "title": "Aggregate Rating Details",
+      "properties": {
+        "ratingValue": {
+          "type": "number",
+          "title": "Rating Value (1-5)",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "reviewCount": {
+          "type": "integer",
+          "title": "Review Count"
+        }
+      }
+    }
+  }
+}

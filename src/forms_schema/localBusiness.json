@@ -1,0 +1,125 @@
+{
+  "title": "Local Business Schema Generator",
+  "description": "Enter your business details to generate LocalBusiness structured data.",
+  "type": "object",
+  "required": ["name", "businessType"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Business Name (schema:name)"
+    },
+    "businessType": {
+      "type": "string",
+      "title": "Business Type (@type)",
+      "enum": [
+        "LocalBusiness",
+        "AutoRepair",
+        "Dentist",
+        "DryCleaningOrLaundry",
+        "Electrician",
+        "GeneralContractor",
+        "HVACBusiness",
+        "HousePainter",
+        "Locksmith",
+        "Plumber",
+        "RoofingContractor",
+        "RealEstateAgent",
+        "Attorney",
+        "AccountingService",
+        "FinancialService",
+        "MedicalClinic",
+        "VeterinaryCare"
+      ]
+    },
+    "description": {
+      "type": "string",
+      "title": "Business Description (schema:description)"
+    },
+    "url": {
+      "type": "string",
+      "title": "Website URL (schema:url)",
+      "format": "uri"
+    },
+    "telephone": {
+      "type": "string",
+      "title": "Phone Number (schema:telephone)"
+    },
+    "email": {
+      "type": "string",
+      "title": "Email (schema:email)",
+      "format": "email"
+    },
+    "priceRange": {
+      "type": "string",
+      "title": "Price Range (schema:priceRange)",
+      "enum": ["$", "$$", "$$$", "$$$$"]
+    },
+    "image": {
+      "type": "string",
+      "title": "Image URL (schema:image)",
+      "format": "uri"
+    },
+
+    "address": {
+      "type": "object",
+      "title": "Business Address (PostalAddress)",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "title": "Street Address"
+        },
+        "addressLocality": {
+          "type": "string",
+          "title": "City (addressLocality)"
+        },
+        "addressRegion": {
+          "type": "string",
+          "title": "State/Region (addressRegion)"
+        },
+        "postalCode": {
+          "type": "string",
+          "title": "Postal Code"
+        }
+      }
+    },
+
+    "geo": {
+      "type": "object",
+      "title": "Geolocation (GeoCoordinates)",
+      "properties": {
+        "latitude": {
+          "type": "number",
+          "title": "Latitude (Optional)"
+        },
+        "longitude": {
+          "type": "number",
+          "title": "Longitude (Optional)"
+        }
+      }
+    },
+
+    "openingHoursSpecification": {
+      "type": "object",
+      "title": "Opening Hours",
+      "properties": {
+        "dayOfWeek": {
+          "type": "array",
+          "title": "Days Open",
+          "items": {
+            "type": "string",
+            "enum": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
+          },
+          "uniqueItems": true
+        },
+        "opens": {
+          "type": "string",
+          "title": "Opening Time (HH:MM format)"
+        },
+        "closes": {
+          "type": "string",
+          "title": "Closing Time (HH:MM format)"
+        }
+      }
+    }
+  }
+}

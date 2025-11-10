@@ -1,0 +1,161 @@
+{
+  "type": "object",
+  "required": ["name", "description"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Full Name"
+    },
+    "description": {
+      "type": "string",
+      "title": "Professional Description"
+    },
+    "givenName": {
+      "type": "string",
+      "title": "Given Name (First)"
+    },
+    "familyName": {
+      "type": "string",
+      "title": "Family Name (Last)"
+    },
+    "honorificPrefix": {
+      "type": "string",
+      "title": "Honorific Prefix"
+    },
+    "honorificSuffix": {
+      "type": "string",
+      "title": "Honorific Suffix"
+    },
+    "jobTitle": {
+      "type": "string",
+      "title": "Job Title/Position"
+    },
+    "url": {
+      "type": "string",
+      "title": "Personal Website (schema:url)",
+      "format": "uri"
+    },
+    "image": {
+      "type": "string",
+      "title": "Professional Photo URL (schema:image)",
+      "format": "uri"
+    },
+    "birthDate": {
+      "type": "string",
+      "title": "Birth Date",
+      "format": "date"
+    },
+    "nationality": {
+      "type": "string",
+      "title": "Nationality"
+    },
+    "award": {
+      "type": "string",
+      "title": "Awards (schema:award)"
+    },
+
+    "contactPoint": {
+      "type": "object",
+      "title": "Contact Information (ContactPoint)",
+      "properties": {
+        "contactType": {
+          "type": "string",
+          "title": "Contact Type (e.g., Professional, Customer Service)"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email Address",
+          "format": "email"
+        },
+        "telephone": {
+          "type": "string",
+          "title": "Phone Number"
+        }
+      }
+    },
+
+    "address": {
+      "type": "object",
+      "title": "Physical Address (PostalAddress)",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "title": "Street Address"
+        },
+        "addressLocality": {
+          "type": "string",
+          "title": "City (addressLocality)"
+        },
+        "addressRegion": {
+          "type": "string",
+          "title": "State/Region (addressRegion)"
+        },
+        "postalCode": {
+          "type": "string",
+          "title": "Postal Code"
+        }
+      }
+    },
+
+    "worksFor": {
+      "type": "object",
+      "title": "Current Employer (Organization)",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Organization Name"
+        },
+        "url": {
+          "type": "string",
+          "title": "Organization URL",
+          "format": "uri"
+        }
+      }
+    },
+
+    "alumniOf": {
+      "type": "object",
+      "title": "Education/University (AlumniOf)",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "University/Institution Name"
+        },
+        "hasCredential": {
+          "type": "object",
+          "title": "Degree/Credential Details",
+          "properties": {
+            "credentialCategory": {
+              "type": "string",
+              "title": "Degree (e.g., Master of Arts, PhD)"
+            },
+            "dateCreated": {
+              "type": "string",
+              "title": "Graduation Year (or Date)"
+            }
+          }
+        }
+      }
+    },
+
+    "knowsAbout": {
+      "type": "array",
+      "title": "Skills/Areas of Expertise (schema:knowsAbout)",
+      "description": "Enter one skill or topic per line.",
+      "items": {
+        "type": "string"
+      }
+    },
+
+    "sameAs": {
+      "type": "array",
+      "title": "Social/SameAs URLs",
+      "description": "List all official social media profiles or equivalent external links (LinkedIn, Twitter, etc.).",
+      "items": {
+        "type": "string",
+        "title": "URL",
+        "format": "uri"
+      }
+    }
+  }
+}

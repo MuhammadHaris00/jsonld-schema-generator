@@ -1,0 +1,144 @@
+{
+  "title": "Organization (NGO) Schema Generator",
+  "description": "Enter detailed organization information to generate structured data for an NGO or similar organization.",
+  "type": "object",
+  "required": ["name", "description", "url"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Organization Name (schema:name)"
+    },
+    "description": {
+      "type": "string",
+      "title": "Short Description (schema:description)"
+    },
+    "url": {
+      "type": "string",
+      "title": "Official Website URL (schema:url)",
+      "format": "uri"
+    },
+    "logo": {
+      "type": "string",
+      "title": "Logo Image URL (schema:logo)",
+      "format": "uri"
+    },
+    "foundingDate": {
+      "type": "string",
+      "title": "Founding Date (schema:foundingDate)",
+      "format": "date"
+    },
+    "legalName": {
+      "type": "string",
+      "title": "Legal Name (schema:legalName)"
+    },
+    "slogan": {
+      "type": "string",
+      "title": "Slogan (schema:slogan)"
+    },
+    "numberOfEmployees": {
+      "type": "string",
+      "title": "Number of Employees (schema:numberOfEmployees)"
+    },
+    "vatID": {
+      "type": "string",
+      "title": "VAT ID (schema:vatID)"
+    },
+    "taxID": {
+      "type": "string",
+      "title": "Tax ID (schema:taxID)"
+    },
+    "industry": {
+      "type": "string",
+      "title": "Industry/Sector (schema:industry)"
+    },
+
+    "address": {
+      "type": "object",
+      "title": "Mailing/Physical Address (PostalAddress)",
+      "properties": {
+        "streetAddress": {
+          "type": "string",
+          "title": "Street Address"
+        },
+        "addressLocality": {
+          "type": "string",
+          "title": "City (addressLocality)"
+        },
+        "addressRegion": {
+          "type": "string",
+          "title": "State/Region (addressRegion)"
+        },
+        "postalCode": {
+          "type": "string",
+          "title": "Postal Code"
+        }
+      }
+    },
+
+    "contactPoint": {
+      "type": "object",
+      "title": "Primary Contact Information (ContactPoint)",
+      "properties": {
+        "contactType": {
+          "type": "string",
+          "title": "Contact Type (e.g., Customer Service)"
+        },
+        "telephone": {
+          "type": "string",
+          "title": "Phone Number"
+        },
+        "email": {
+          "type": "string",
+          "title": "Email Address",
+          "format": "email"
+        }
+      }
+    },
+
+    "founder": {
+      "type": "object",
+      "title": "Founder Details (Person)",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Founder's Full Name"
+        }
+      }
+    },
+
+    "employee": {
+      "type": "object",
+      "title": "Key Employee/CEO Details (Person)",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Employee's Full Name"
+        },
+        "jobTitle": {
+          "type": "string",
+          "title": "Job Title (e.g., CEO, Director)"
+        }
+      }
+    },
+
+    "keywords": {
+      "type": "array",
+      "title": "Keywords/Tags",
+      "items": {
+        "type": "string",
+        "title": "Keyword"
+      }
+    },
+
+    "sameAs": {
+      "type": "array",
+      "title": "Social/SameAs URLs",
+      "description": "List all official social media profiles or equivalent external links.",
+      "items": {
+        "type": "string",
+        "title": "URL",
+        "format": "uri"
+      }
+    }
+  }
+}

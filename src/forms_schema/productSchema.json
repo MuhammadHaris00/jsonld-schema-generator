@@ -1,0 +1,111 @@
+{
+  "title": "Product Schema Generator",
+  "description": "Enter your product details to generate Product structured data (JSON-LD).",
+  "type": "object",
+  "required": ["name", "description", "offers"],
+  "properties": {
+    "name": {
+      "type": "string",
+      "title": "Product Name (schema:name)"
+    },
+    "description": {
+      "type": "string",
+      "title": "Product Description (schema:description)"
+    },
+    "model": {
+      "type": "string",
+      "title": "Model (schema:model)"
+    },
+    "sku": {
+      "type": "string",
+      "title": "SKU (schema:sku)"
+    },
+    "gtin": {
+      "type": "string",
+      "title": "GTIN/UPC (schema:gtin)"
+    },
+    "image": {
+      "type": "string",
+      "title": "Product Image URL (schema:image)",
+      "format": "uri"
+    },
+    "category": {
+      "type": "string",
+      "title": "Category (schema:category)"
+    },
+
+    "brand": {
+      "type": "object",
+      "title": "Brand Information",
+      "properties": {
+        "name": {
+          "type": "string",
+          "title": "Brand Name"
+        }
+      }
+    },
+
+    "offers": {
+      "type": "object",
+      "title": "Offer Details (Single Offer)",
+      "properties": {
+        "price": {
+          "type": "number",
+          "title": "Price (schema:price)"
+        },
+        "priceCurrency": {
+          "type": "string",
+          "title": "Currency (schema:priceCurrency)",
+          "enum": ["USD", "EUR", "GBP", "CAD", "AUD"]
+        },
+        "availability": {
+          "type": "string",
+          "title": "Availability",
+          "enum": ["In Stock", "Out of Stock", "Pre Order", "Back Order"]
+        },
+        "itemCondition": {
+          "type": "string",
+          "title": "Condition",
+          "enum": ["New Condition", "Used Condition", "Refurbished Condition", "Damaged Condition"]
+        },
+        "url": {
+          "type": "string",
+          "title": "Product Page URL (schema:url)",
+          "format": "uri"
+        },
+        "priceValidUntil": {
+          "type": "string",
+          "title": "Offer Valid Until (schema:priceValidUntil)",
+          "format": "date"
+        },
+        "seller": {
+          "type": "object",
+          "title": "Seller Information",
+          "properties": {
+            "name": {
+              "type": "string",
+              "title": "Business/Seller Name"
+            }
+          }
+        }
+      }
+    },
+
+    "aggregateRating": {
+      "type": "object",
+      "title": "Aggregate Rating Details",
+      "properties": {
+        "ratingValue": {
+          "type": "number",
+          "title": "Rating Value (1-5)",
+          "minimum": 0,
+          "maximum": 5
+        },
+        "reviewCount": {
+          "type": "integer",
+          "title": "Review Count"
+        }
+      }
+    }
+  }
+}
