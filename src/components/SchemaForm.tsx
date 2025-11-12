@@ -3,6 +3,7 @@ import Form from '@rjsf/core';
 import type { IChangeEvent } from '@rjsf/core';
 import type RJSFSchema from '@rjsf/core';
 import validator from '@rjsf/validator-ajv8';
+import '../styles/Schema-form.css';
 
 // Import necessary types and the central transformation logic
 import type { FormData, SchemaKey } from '../types/schema';

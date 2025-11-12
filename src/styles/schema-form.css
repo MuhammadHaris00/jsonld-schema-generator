@@ -1,0 +1,232 @@
+@charset "UTF-8";
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.section-heading, .description {
+  text-align: center;
+}
+
+.description {
+  font: 400 15px/29px "Inter Tight", sans-serif;
+  color: #c1c3ca;
+}
+
+.schema-generator h3 {
+  font-family: "Inter Tight", Sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+  color: #fff;
+}
+
+.schema-generator legend {
+  font: 600 20px/35px "Inter", sans-serif;
+  color: #fff;
+}
+
+.schema-generator label {
+  font-family: "Inter Tight", Sans-serif;
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.schema-generator input[type=date]::-webkit-calendar-picker-indicator {
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+select option {
+  color: #000;
+}
+
+.schema-generator .form-control {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  background-color: rgba(255, 255, 255, 0.031372549);
+  border: 1px solid rgba(255, 255, 255, 0.0509803922);
+  box-shadow: unset;
+  border-radius: 0px;
+  color: #fafafa;
+  font-family: "Inter Tight", Sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 22px;
+}
+
+.schema-generator .form-control:focus {
+  box-shadow: none;
+  border-color: rgb(56, 189, 248);
+}
+
+.schema-generator .form-container, .schema-generator .preview-container {
+  background: radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.12), transparent 60%), radial-gradient(circle at 80% 90%, rgba(43, 29, 47, 0.9), transparent 70%), linear-gradient(15deg, #050505 0%, #0a0a0a 110%, #0c0c0c 100%) !important;
+  background-blend-mode: screen !important;
+  border: 1px solid rgba(255, 255, 255, 0.1098039216) !important;
+}
+
+.schema-generator .preview-container h3 {
+  font: 600 20px/28px "Inter", sans-serif;
+}
+
+.schema-generator .preview-container pre {
+  background-color: rgba(255, 255, 255, 0.031372549) !important;
+  border-radius: 0px !important;
+  padding: 1.7rem;
+  color: rgba(193, 195, 202, 0.368627451);
+  border: none;
+  min-height: 400px;
+}
+
+.schema-generator .preview-container > pre::after {
+  content: "👈\aStart filling out the form to see your schema appear here!";
+  white-space: pre-line;
+  display: block;
+  color: rgba(255, 255, 255, 0.4117647059);
+  padding-top: 100px;
+  font: 400 15px/22px "Inter Tight", Sans-serif;
+  text-align: center;
+}
+
+pre.active::after {
+  display: none !important;
+}
+
+pre.active {
+  color: #c1c3ca !important;
+}
+
+.schema-generator .section.section-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 25px;
+}
+
+.schema-generator .section.section-tabs .tab {
+  width: 33%;
+  background: rgba(255, 255, 255, 0.103) !important;
+}
+
+.schema-generator .section.section-tabs .tab.tab-active {
+  background: radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.35), transparent 60%), radial-gradient(circle at 80% 90%, rgba(111, 66, 193, 0.5), transparent 50%), linear-gradient(160deg, #1a1a1a 0%, #222222 100%) !important;
+  background-blend-mode: screen !important;
+  border: 1px solid rgba(255, 255, 255, 0.4588235294) !important;
+}
+
+.schema-generator .section.section-tabs .tab:hover {
+  background: radial-gradient(circle at 20% 0%, rgba(96, 165, 250, 0.35), transparent 60%), radial-gradient(circle at 80% 90%, rgba(111, 66, 193, 0.5), transparent 50%), linear-gradient(160deg, #1a1a1a 0%, #222222 100%) !important;
+  background-blend-mode: screen !important;
+  border: 1px solid rgba(255, 255, 255, 0.4588235294) !important;
+}
+
+.schema-generator .row:before {
+  display: none;
+}
+
+.schema-generator .row:after {
+  display: none;
+}
+
+.schema-generator button.btn-info {
+  width: 30%;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  background-color: transparent !important;
+  padding: 15px 15px 15px 15px;
+  background-image: linear-gradient(120deg, #107dc8 0%, #bb29d3 100%);
+  border: none !important;
+  border-radius: 40px;
+  font: 600 14px/24px "Inter Tight", Sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.schema-generator #root_faqs__add, #root_faqs_1__remove, .btn-default {
+  background-image: none !important;
+  border: 1px solid rgba(255, 255, 255, 0.0509803922) !important;
+  box-shadow: unset;
+  border-radius: 0px;
+  width: 47px;
+}
+
+#root_faqs_0__remove, #root_faqs__add, #root_faqs_1__remove {
+  border-radius: 0px !important;
+  background-color: #147bc8 !important;
+  border: 1px solid #147bc8 !important;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+  justify-content: end !important;
+}
+
+.schema-generator .col-xs-offset-9 {
+  margin-bottom: 0 !important;
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+}
+
+.schema-generator .section.form-section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 3em !important;
+}
+
+.schema-generator .best-practices, .implementations {
+  margin-top: 2rem;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  background-color: rgba(96, 165, 250, 0.089) !important;
+  border: 1px solid rgba(255, 255, 255, 0.0509803922);
+  box-shadow: 2px 2px 10px 0px rgba(152, 152, 152, 0.0509803922);
+}
+
+.schema-generator .implementations {
+  background-color: rgba(43, 29, 47, 0.9) !important;
+}
+
+.schema-generator .best-practices h4 {
+  font: 600 17px/24px "Inter Tight", Sans-serif;
+}
+
+.schema-generator .best-practices ul li, .implementations p {
+  color: #c1c3ca;
+  font-family: "Roboto", Sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 1024px) {
+  .schema-generator {
+    padding: 50px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .schema-generator {
+    padding: 35px;
+  }
+  .section-heading {
+    font-size: 25px !important;
+  }
+  .schema-generator button.btn-info {
+    width: 50%;
+  }
+  .schema-generator .preview-container pre {
+    min-height: 250px;
+  }
+}/*# sourceMappingURL=schema-form.css.map */
