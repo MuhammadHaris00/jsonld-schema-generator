@@ -1,73 +1,94 @@
-# React + TypeScript + Vite
+# JSON-LD Schema Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A React-based tool for generating JSON-LD schema markup to support AEO-GEO (Answer Engine Optimization / Generative Engine Optimization) strategies. Generate structured data for search engines and AI assistants across multiple schema types.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Generate JSON-LD schema for 6 schema types:
+  - **Local Business** — essential for local SEO and map listings
+  - **FAQ** — get featured in AI-generated answers and voice assistant responses
+  - **Product** — e-commerce & service product rich results
+  - **Service** — company knowledge graph presence
+  - **Organization** — business entity authority in AI systems
+  - **Person** — establish expertise and authority (E-A-T)
+- Live JSON preview as you fill out the form
+- One-click copy to clipboard
+- Schema-specific best practices and implementation guidance
+- Built with React, TypeScript, Vite, Tailwind CSS, react-bootstrap, and react-jsonschema-form
 
-## React Compiler
+## Getting Started
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Prerequisites
 
-## Expanding the ESLint configuration
+- Node.js (v18+ recommended)
+- npm or yarn
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Installation
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+### Development
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Start the development server with hot module replacement:
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm run dev
 ```
+
+### Build
+
+Type-check and build for production:
+
+```bash
+npm run build
+```
+
+### Preview
+
+Preview the production build locally:
+
+```bash
+npm run preview
+```
+
+### Lint
+
+Run ESLint:
+
+```bash
+npm run lint
+```
+
+## Usage
+
+1. Select a schema type from the tabs (Local Business, FAQ, Product, Service, Organization, Person).
+2. Fill in the schema details in the form on the left.
+3. View the live JSON-LD preview on the right.
+4. Click **Copy Schema** to copy the generated JSON-LD to your clipboard.
+5. Add the JSON-LD to your website inside a `<script type="application/ld+json">` tag in the `<head>` section (or on the relevant page).
+
+## Schema Types
+
+| Schema | Best For |
+|--------|----------|
+| Local Business | Local SEO, map listings, storefronts |
+| FAQ | AI search results, voice assistant responses |
+| Product | E-commerce, product listings, shopping engines |
+| Service | Service pages, business listings |
+| Organization | Company pages, about sections, business validation |
+| Person | Company leaders, content authors, expert contributors |
+
+## Tech Stack
+
+- [React](https://react.dev/) 19
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [react-bootstrap](https://react-bootstrap.netlify.app/)
+- [react-jsonschema-form](https://rjsf-team.github.io/react-jsonschema-form/)
+
+## License
+
+MIT
